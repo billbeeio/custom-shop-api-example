@@ -26,16 +26,18 @@ class BasicAuthAuthenticator implements AuthenticatorInterface
 
     public function isAuthorized(RequestInterface $request)
     {
+        // Benutzerinfo aus der Request auslesen
         $userInfo = trim($request->getUri()->getUserInfo());
+
+        // Wenn keine Zugangsdaten übermittelt wurden, ist der Nutzer nicht berechtigt
         if (empty($userInfo)) {
             return false;
         }
 
+        // Die Zugangsdaten kommen im Format Benutzername:Passwort -> Splitten und als variablen zuweisen
         list($username, $password) = explode(':', $userInfo, 2);
-        if ($username != $this->username && $password != $this->password) {
-            return false;
-        }
 
-        return true;
+        // Benutzername und Passwort überprüfen und ergebnis zurückgeben
+        return ($username == $this->username && $password == $this->password);
     }
 }
