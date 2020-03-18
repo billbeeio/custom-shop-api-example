@@ -1,6 +1,6 @@
 # Billbee Custom Shop SDK Beispiel
 
-Beispielcode aus dem Blogpost
+Beispielcode aus dem [Blogpost](https://www.billbee.io/blog/billbee/custom-shop-api-sdk-verwenden/)
 
 ```bash
 # Herunterladen
